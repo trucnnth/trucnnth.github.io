@@ -1,0 +1,115 @@
+[
+  {
+    "id": "petalute-invivo",
+    "title": "Dynamic 19F Gas MRI in Phantom and Human Lungs using 3D Rosette UTE",
+    "authors": "**T. Nguyen**, U. Emir, J. Goralski, Y.Z. Lee",
+    "image": "img/presentations/invivo2026nguyen.jpg",
+    "venues": [
+      {
+        "type": "poster",
+        "name": "International Workshop for Pulmonary Functional Imaging · Quebec, Canada · September 2026"
+      }
+    ]
+  },
+  {
+    "id": "petalute",
+    "title": "Dynamic 19F Gas MRI Using 3D Rosette UTE Sequence (PETALUTE)",
+    "authors": "**T. Nguyen**, K. Huynh, P.-T. Yap, U. Emir, Y.Z. Lee",
+    "image": "img/presentations/dynamic2026nguyen.jpg",
+    "links": [
+      {
+        "label": "Link",
+        "url": "https://echo.ismrm.org/abstracts/view/f8a05ac9-1d46-45c0-8c61-2720f5e3a74a"
+      }
+    ],
+    "venues": [
+      {
+        "type": "oral",
+        "name": "Radiology Departmental Research Symposium · Chapel Hill, NC · March 2026"
+      },
+      {
+        "type": "poster",
+        "name": "ISMRM-ISMRT Annual Meeting & Exhibition · Cape Town, South Africa · May 2026"
+      }
+    ]
+  },
+  {
+    "id": "quantitative",
+    "title": "Quantitative Defect Mapping for Free-Breathing 19F Spiral UTE",
+    "authors": "**T. Nguyen**, K. Huynh, S.H. Chung, P.-T. Yap, Y.Z. Lee",
+    "image": "img/presentations/quantitative2026nguyen.jpg",
+    "links": [
+      {
+        "label": "Link",
+        "url": "https://echo.ismrm.org/abstracts/view/7ed9f4af-fd02-44a7-bf90-2619c579e6fa"
+      }
+    ],
+    "venues": [
+      {
+        "type": "poster",
+        "name": "Radiology Departmental Research Symposium · Chapel Hill, NC · March 2026"
+      },
+      {
+        "type": "poster",
+        "name": "ISMRM-ISMRT Annual Meeting & Exhibition · Cape Town, South Africa · May 2026"
+      }
+    ]
+  },
+  {
+    "id": "ventilation-defect",
+    "title": "A Better Estimation of Ventilation Defect Derived from Free-Breathing 19F Lung MRI in Cystic Fibrosis Patients",
+    "authors": "**T. Nguyen**, K. Huynh, S.H. Chung, J. Ord, C. Wing, P.-T. Yap, Y.Z. Lee",
+    "image": "img/presentations/better2025nguyen.jpg",
+    "venues": [
+      {
+        "type": "poster",
+        "name": "International Workshop on Pulmonary Imaging · Philadelphia, PA · March 2025"
+      }
+    ]
+  },
+  {
+    "id": "19f-techniques",
+    "title": "The Current Techniques in 19F Magnetic Resonance Imaging",
+    "authors": "**T. Nguyen**",
+    "venues": [
+      {
+        "type": "talk",
+        "name": "Marsico Lung Institute · Chapel Hill, NC · November 15, 2024"
+      }
+    ]
+  },
+  {
+    "id": "block-matching",
+    "title": "Temporal Profile Block-Matching Denoising Enables Free-Breathing Dynamic 19F Lung MRI with Sub-0.5-Second Acquisition Time",
+    "authors": "**T. Nguyen**, K. Huynh, S.H. Chung, P.-T. Yap, Y.Z. Lee",
+    "image": "img/presentations/temporal2024nguyen.jpg",
+    "venues": [
+      {
+        "type": "oral",
+        "name": "ISMRM-ISMRT Annual Meeting & Exhibition · Singapore · May 2024"
+      },
+      {
+        "type": "poster",
+        "name": "ISMRM-ISMRT Annual Meeting & Exhibition · Singapore · May 2024"
+      }
+    ],
+    "links": [
+      {
+        "label": "Link",
+        "url": "https://archive.ismrm.org/2024/4760.html"
+      }
+    ]
+  },
+  {
+    "id": "denoising",
+    "title": "Denoising Strategies for Spiral 19F MR Ventilation Imaging of Fluorinated Gas",
+    "authors": "**T. Nguyen**, S.H. Chung, K. Huynh, P.-T. Yap, Y.Z. Lee",
+    "image": "img/presentations/denoising2023nguyen.jpg",
+    "venues": [
+      {
+        "type": "poster",
+        "name": "Radiology Departmental Research Symposium · Chapel Hill, NC · October 2023"
+      }
+    ]
+  }
+]

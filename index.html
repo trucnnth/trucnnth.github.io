@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truc "Sam" Nguyen</title>
+<meta name="description" content="PhD Candidate in Biomedical Engineering at UNC-Chapel Hill, developing MRI acquisition and processing pipelines for lung imaging.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://trucnnth.github.io/">
+<meta property="og:title" content="Truc &quot;Sam&quot; Nguyen">
+<meta property="og:description" content="PhD Candidate in Biomedical Engineering · UNC-Chapel Hill.">
+<meta property="og:image" content="https://trucnnth.github.io/img/headshot.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Truc &quot;Sam&quot; Nguyen">
+<meta name="twitter:description" content="PhD Candidate in Biomedical Engineering · UNC-Chapel Hill.">
+<meta name="twitter:image" content="https://trucnnth.github.io/img/headshot.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Applied before first paint so dark mode never flashes light. The button
+  // label is set later, once the DOM exists.
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  })();
+</script>
+<style>
+/* ============================================================
+   SAM NGUYEN — PERSONAL ACADEMIC SITE
+   Color palette: McKinsey navy + blue accent
+   ============================================================ */
+
+:root {
+  --navy: #051C2C;
+  --navy-light: #0a2940;
+  --blue: #2251FF;
+  --blue-hover: #1a3fcc;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --text-light: #888;
+  --bg: #fafafa;
+  --bg-alt: #f2f4f6;
+  --bg-card: #ffffff;
+  --border: #dde1e6;
+  --border-light: #eaedf0;
+  --white: #ffffff;
+  --nav-bg: #051C2C;
+  --nav-text: rgba(255,255,255,0.65);
+  --nav-text-hover: #ffffff;
+}
+
+[data-theme="dark"] {
+  --navy: #e8e6e1;
+  --navy-light: #c5c3be;
+  --blue: #5b8aff;
+  --blue-hover: #7da3ff;
+  --text: #e0ddd8;
+  --text-secondary: #a09d98;
+  --text-light: #7a7772;
+  --bg: #111110;
+  --bg-alt: #1a1918;
+  --bg-card: #1e1d1c;
+  --border: #2d2c2a;
+  --border-light: #252423;
+  --white: #e8e6e1;
+  --nav-bg: #0a0a09;
+  --nav-text: rgba(255,255,255,0.55);
+  --nav-text-hover: #e8e6e1;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.72;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--blue-hover); }
+
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.topnav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+}
+
+.topnav .site-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.topnav .nav-links {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.topnav .nav-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--nav-text);
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+.topnav .nav-links a:hover {
+  color: var(--nav-text-hover);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--white); margin: 4px 0; border-radius: 2px; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--nav-text);
+  transition: all 0.2s;
+}
+.theme-toggle:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: var(--nav-text-hover);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 56px 0 24px;
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.hero-photo {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  display: block;
+}
+
+.hero-info h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.hero-info .subtitle {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+.blinking-cursor {
+  font-weight: 700;
+  font-size: 1.3em;
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-info .bio {
+  font-size: 0.94rem;
+  line-height: 1.78;
+  color: var(--text);
+  margin-top: 14px;
+}
+
+.hero-info .bio a { font-weight: 500; }
+
+.hero-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-links a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 6px 14px;
+  border: 1.5px solid var(--navy);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.hero-links a:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+}
+
+/* Sits in the same row as the GitHub/LinkedIn buttons. Spelled out rather than a
+   mailto: so naive scrapers don't harvest it — hence a span, not a link. */
+.hero-email {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 5px;
+}
+
+/* ===== Lab Scene Pixel Art Banner ===== */
+.lab-banner {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+}
+.lab-banner canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+/* ============================================================
+   SECTIONS — shared
+   ============================================================ */
+section {
+  padding: 40px 0 0;
+}
+
+section h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 22px;
+  padding-bottom: 8px;
+  border-bottom: 2.5px solid var(--blue);
+  display: inline-block;
+}
+
+/* ============================================================
+   NEWS
+   ============================================================ */
+/* The news feed is the centre of gravity of this site. Scrollable window, sized
+   to show roughly ten items before the reader has to scroll. */
+.news-list {
+  list-style: none;
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 8px;
+}
+.news-list::-webkit-scrollbar { width: 6px; }
+.news-list::-webkit-scrollbar-track { background: var(--bg-alt); border-radius: 3px; }
+.news-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.news-list::-webkit-scrollbar-thumb:hover { background: var(--text-light); }
+.news-list li {
+  display: flex;
+  gap: 18px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+.news-list li:last-child { border-bottom: none; }
+
+.news-date {
+  flex-shrink: 0;
+  width: 96px;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.86rem;
+  padding-top: 2px;
+}
+
+.news-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.tag-funding {
+  background: rgba(34, 81, 255, 0.1);
+  color: var(--blue);
+}
+
+.tag-accepted {
+  background: rgba(16, 122, 87, 0.1);
+  color: #107a57;
+}
+
+.tag-newrole {
+  background: rgba(146, 64, 14, 0.1);
+  color: #92400e;
+}
+
+.tag-presented {
+  background: rgba(88, 28, 135, 0.1);
+  color: #581c87;
+}
+
+/* news visibility is now handled by JS */
+
+
+.news-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+.filter-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+}
+
+/* news filtering handled by JS */
+
+/* ============================================================
+   PRESENTATIONS & TALKS
+   ============================================================ */
+.pres-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.pres-card:hover {
+  box-shadow: 0 2px 12px rgba(5,28,44,0.06);
+  border-color: var(--blue);
+}
+
+.pres-info { flex: 1; min-width: 0; }
+
+.pres-thumb {
+  width: 200px;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+
+.pres-venues {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pres-venue-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.pres-type {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+
+.type-oral {
+  background: rgba(34, 81, 255, 0.1);
+  color: var(--blue);
+}
+
+.type-poster {
+  background: rgba(146, 64, 14, 0.1);
+  color: #92400e;
+}
+
+.type-talk {
+  background: rgba(88, 28, 135, 0.1);
+  color: #581c87;
+}
+
+.pres-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.pres-card.filtered-out { display: none !important; }
+
+/* Highlight animation when scrolling to a card via anchor */
+@keyframes card-highlight {
+  0%   { box-shadow: 0 0 0 3px var(--blue); border-color: var(--blue); }
+  100% { box-shadow: 0 0 0 0px transparent; border-color: var(--border); }
+}
+.pres-card.highlight {
+  animation: card-highlight 2s ease-out forwards;
+}
+
+.pres-links {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 8px;
+}
+.pres-links a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  padding: 1px 6px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.pres-links a:hover {
+  background: var(--blue);
+  color: #fff;
+}
+.pres-links a.disabled {
+  color: var(--text-light);
+  border-color: var(--border);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.pres-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+.pres-authors {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+
+/* ============================================================
+   BEYOND THE LAB
+   ============================================================ */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.life-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.life-tile:hover {
+  border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(34,81,255,0.06);
+}
+.life-tile-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+.life-tile-detail {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+.life-tile-arrow {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  transition: transform 0.2s, color 0.2s;
+  display: inline-block;
+}
+.life-tile:hover .life-tile-arrow {
+  color: var(--blue);
+  transform: translateX(2px);
+}
+.life-tile-link {
+  color: var(--blue);
+  font-weight: 500;
+  cursor: pointer;
+}
+.life-tile-link:hover {
+  color: var(--blue-hover);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  margin-top: 56px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--nav-bg);
+  color: var(--nav-text-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 90;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--blue); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-links { justify-content: center; }
+  .hero-info h1 { font-size: 1.7rem; }
+
+  .topnav .nav-links { display: none; margin-right: 0; }
+  .topnav .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    padding: 12px 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-toggle { display: block; }
+  .topnav .container { gap: 8px; }
+  .topnav .site-name { flex: 1; }
+  .theme-toggle { flex-shrink: 0; }
+
+  .news-list li { flex-direction: column; gap: 2px; }
+  .life-grid { grid-template-columns: 1fr 1fr; }
+  .news-date { width: auto; }
+  .pres-card { flex-direction: column; }
+  .pres-thumb { width: 100%; max-height: 160px; order: -1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="topnav">
+  <div class="container">
+    <a href="#top" class="site-name">Truc "Sam" Nguyen</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#work">Work</a>
+      <a href="#life">Life</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">☀️</button>
+  </div>
+</nav>
+
+<!-- ========== HERO / ABOUT ========== -->
+<div class="container" id="top">
+
+  <section id="about">
+    <div class="hero">
+      <img src="img/headshot.jpg" alt="Sam Nguyen" class="hero-photo">
+
+      <div class="hero-info">
+        <h1>Truc "Sam" Nguyen</h1>
+        <p class="subtitle">PhD Candidate in Biomedical Engineering · UNC-Chapel Hill<span class="blinking-cursor">|</span></p>
+        <p class="bio">
+          Now in my final year, I work with
+          <a href="https://www.med.unc.edu/radiology/people/yueh-z-lee/" target="_blank">Dr. Yueh Z. Lee</a>
+          at UNC-Chapel Hill, developing MRI acquisition and processing pipelines for lung imaging. My work enables pulmonary function and dynamics analysis
+          across 30+ clinical trial participants and 100+ datasets.
+        </p>
+        <p class="bio" style="margin-top: 8px;">
+          Outside the lab, I'm a Partner at
+          <a href="https://gbcc.web.unc.edu/consulting/cg2/" target="_blank">CGsquared</a>,
+          a student-led pro bono consulting group, and a
+          <a href="https://innovate.unc.edu/venture-catalyst-program/" target="_blank">Venture Catalyst Fellow</a>
+          at Innovate Carolina in the 2026&ndash;2027 cohort.
+          Before grad school, I was a Process &amp; Equipment Engineer at
+          Intel Products Vietnam, where I 10x-ed semiconductor yields
+          during COVID disruption.
+        </p>
+
+        <div class="hero-links">
+          <a href="https://github.com/trucnnth" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/trucnnth" target="_blank">LinkedIn</a>
+          <span class="hero-email">Email me at trucnnth at unc dot edu</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWS ========== -->
+  <section id="news">
+    <h2>News</h2>
+    <div class="news-filters">
+      <button class="filter-btn active" data-filter="all" data-label="All">All</button>
+      <button class="filter-btn" data-filter="accepted" data-label="Accepted">Accepted</button>
+      <button class="filter-btn" data-filter="presented" data-label="Presented">Presented</button>
+      <button class="filter-btn" data-filter="funding" data-label="Funded">Funded</button>
+      <button class="filter-btn" data-filter="newrole" data-label="New Role">New Role</button>
+    </div>
+    <ul class="news-list"></ul>
+  </section>
+
+  <div id="work"></div>
+  <!-- ========== PRESENTATIONS & TALKS ========== -->
+  <section id="presentations">
+    <h2>Presentations &amp; Talks</h2>
+    <div class="pres-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="oral">Oral</button>
+      <button class="filter-btn" data-filter="poster">Poster</button>
+      <button class="filter-btn" data-filter="talk">Talk</button>
+    </div>
+
+    <div class="pres-list"></div>
+  </section>
+
+  <div class="container">
+    <div class="lab-banner">
+      <canvas id="lab-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- ========== BEYOND THE LAB ========== -->
+  <section id="life">
+    <h2>Beyond the Lab</h2>
+    <div class="life-grid">
+      <a href="cgsquared.html" class="life-tile">
+        <span class="life-tile-title">💼 CGsquared <span class="life-tile-arrow">→</span></span>
+        <span class="life-tile-detail">Pro bono consulting</span>
+      </a>
+      <a href="parks.html" class="life-tile">
+        <span class="life-tile-title">🏔️ National Parks <span class="life-tile-arrow">→</span></span>
+        <span class="life-tile-detail">9/63, with <span class="life-tile-link" onclick="event.preventDefault(); event.stopPropagation(); window.open('https://kmhuynh.github.io','_blank')">Dr. Huynh</span></span>
+      </a>
+      <a href="ikebana.html" class="life-tile">
+        <span class="life-tile-title">🌸 Ikebana <span class="life-tile-arrow">→</span></span>
+        <span class="life-tile-detail">Having fun with <span class="life-tile-link" onclick="event.preventDefault(); event.stopPropagation(); window.open('https://www.linkedin.com/in/aya-sode/','_blank')">Aya Sode</span></span>
+      </a>
+      <div class="life-tile">
+        <span class="life-tile-title">🧗 Climbing</span>
+        <span class="life-tile-detail">Bouldering &amp; top-rope</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    &copy; 2026 Truc "Sam" Nguyen
+  </footer>
+
+</div>
+
+<!-- ========== BACK TO TOP ========== -->
+<button class="back-to-top" onclick="window.scrollTo({top:0})" aria-label="Back to top">↑</button>
+
+<script>
+  // Parse Markdown-style [text](url) into <a> tags
+  function parseMdLinks(text) {
+    return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+      if (url.startsWith('#') || url.startsWith('/')) {
+        return '<a href="' + url + '">' + linkText + '</a>';
+      }
+      return '<a href="' + url + '" target="_blank">' + linkText + '</a>';
+    });
+  }
+
+  // Parse **bold** into <strong> tags
+  function parseBold(text) {
+    return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
+  // Tag value mappings from JSON to CSS/data-attributes
+  const TAG_MAP = {
+    'accepted':  { css: 'tag-accepted',  data: 'accepted',  label: 'Accepted' },
+    'presented': { css: 'tag-presented', data: 'presented', label: 'Presented' },
+    'funded':    { css: 'tag-funding',   data: 'funding',   label: 'Funded' },
+    'new role':  { css: 'tag-newrole',   data: 'newrole',   label: 'New Role' },
+    'none':      { css: '',              data: 'none',      label: '' }
+  };
+
+  function renderNews(items) {
+    const ul = document.querySelector('.news-list');
+    ul.innerHTML = '';
+    items.forEach(item => {
+      const li = document.createElement('li');
+      const tagInfo = TAG_MAP[item.tag] || TAG_MAP['none'];
+      li.dataset.tag = tagInfo.data;
+
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'news-date';
+      dateSpan.innerHTML = item.date;
+
+      const textSpan = document.createElement('span');
+      let html = '';
+      if (tagInfo.label) {
+        html += '<span class="news-tag ' + tagInfo.css + '">' + tagInfo.label + '</span> ';
+      }
+      html += parseMdLinks(item.text);
+      textSpan.innerHTML = html;
+
+      li.appendChild(dateSpan);
+      li.appendChild(textSpan);
+      ul.appendChild(li);
+    });
+  }
+
+  // Venue type display mapping
+  const VENUE_TYPE_MAP = {
+    'oral':   { css: 'type-oral',   label: 'Oral' },
+    'poster': { css: 'type-poster', label: 'Poster' },
+    'talk':   { css: 'type-talk',   label: 'Invited Talk' }
+  };
+
+  function renderPresentations(items) {
+    const container = document.querySelector('.pres-list');
+    container.innerHTML = '';
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'pres-card';
+      card.id = 'pres-' + item.id;
+      card.dataset.presTags = item.venues.map(v => v.type).join(' ');
+
+      const info = document.createElement('div');
+      info.className = 'pres-info';
+
+      // Title + links
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'pres-title';
+      let titleHtml = item.title;
+      if (item.links && item.links.length > 0) {
+        titleHtml += ' <span class="pres-links">';
+        item.links.forEach(link => {
+          if (link.url === '#') {
+            titleHtml += '<a href="#" class="disabled">' + link.label + '</a>';
+          } else {
+            titleHtml += '<a href="' + link.url + '" target="_blank">' + link.label + '</a>';
+          }
+        });
+        titleHtml += '</span>';
+      }
+      titleDiv.innerHTML = titleHtml;
+
+      // Authors
+      const authorsDiv = document.createElement('div');
+      authorsDiv.className = 'pres-authors';
+      authorsDiv.innerHTML = parseBold(item.authors);
+
+      // Venues
+      const venuesDiv = document.createElement('div');
+      venuesDiv.className = 'pres-venues';
+      item.venues.forEach(venue => {
+        const row = document.createElement('div');
+        row.className = 'pres-venue-row';
+        const typeInfo = VENUE_TYPE_MAP[venue.type] || { css: '', label: venue.type };
+        row.innerHTML = '<span class="pres-type ' + typeInfo.css + '">' + typeInfo.label + '</span> ' + venue.name;
+        venuesDiv.appendChild(row);
+      });
+
+      info.appendChild(titleDiv);
+      info.appendChild(authorsDiv);
+      info.appendChild(venuesDiv);
+      card.appendChild(info);
+
+      // Optional thumbnail
+      if (item.image) {
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.title;
+        img.className = 'pres-thumb';
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        card.appendChild(img);
+      }
+
+      container.appendChild(card);
+    });
+  }
+
+  // Theme toggle
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelector('.theme-toggle').textContent = next === 'dark' ? '🌙' : '☀️';
+  }
+
+  // Load saved theme or respect system preference
+  // Theme is already applied in <head> (before first paint). Only the
+  // button label needs syncing once the DOM exists.
+  document.querySelector('.theme-toggle').textContent =
+    document.documentElement.getAttribute('data-theme') === 'dark' ? '\uD83C\uDF19' : '\u2600\uFE0F';
+
+  // Back to top visibility
+  const btn = document.querySelector('.back-to-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // News filter
+  let newsFilter = 'all';
+
+  function applyNewsDisplay() {
+    document.querySelectorAll('.news-list li').forEach(li => {
+      const matchesFilter = (newsFilter === 'all') || (li.dataset.tag === newsFilter);
+      li.style.display = matchesFilter ? '' : 'none';
+    });
+  }
+
+  // Stamp each filter pill with how many items it matches, so a reader can see
+  // the shape of the record without clicking through every filter.
+  function labelNewsFilters() {
+    const items = Array.from(document.querySelectorAll('.news-list li'));
+    document.querySelectorAll('.news-filters .filter-btn').forEach(btn => {
+      const f = btn.dataset.filter;
+      const n = f === 'all' ? items.length : items.filter(li => li.dataset.tag === f).length;
+      btn.textContent = btn.dataset.label + ' (' + n + ')';
+      btn.hidden = n === 0;
+    });
+  }
+
+  // News tag filter buttons
+  document.querySelectorAll('.news-filters .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      newsFilter = btn.dataset.filter;
+
+      document.querySelectorAll('.news-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      applyNewsDisplay();
+    });
+  });
+
+  // Load both JSON files, then render and bind listeners
+  Promise.all([
+    fetch('data/news.json').then(r => r.json()),
+    fetch('data/presentations.json').then(r => r.json())
+  ]).then(([newsItems, presItems]) => {
+    renderNews(newsItems);
+    renderPresentations(presItems);
+    labelNewsFilters();
+    applyNewsDisplay();
+
+    // Anchor highlight listeners for dynamically added links
+    document.querySelectorAll('a[href^="#pres-"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          document.querySelectorAll('.pres-card.highlight').forEach(c => c.classList.remove('highlight'));
+          setTimeout(() => {
+            target.classList.add('highlight');
+            setTimeout(() => target.classList.remove('highlight'), 2100);
+          }, 400);
+        }
+      });
+    });
+
+    // Presentation filter buttons
+    document.querySelectorAll('.pres-filters .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.pres-filters .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.pres-card').forEach(card => {
+          const tags = (card.dataset.presTags || '').split(' ');
+          if (filter === 'all') {
+            card.classList.remove('filtered-out');
+          } else {
+            card.classList.toggle('filtered-out', !tags.includes(filter));
+          }
+        });
+      });
+    });
+  }).catch(err => {
+    console.error('Failed to load content:', err);
+    document.querySelector('.news-list').innerHTML = '<li>Failed to load news.</li>';
+    document.querySelector('.pres-list').innerHTML = '<div class="pres-card">Failed to load presentations.</div>';
+  });
+</script>
+
+<script src="js/lab-scene.js"></script>
+
+</body>
+</html>

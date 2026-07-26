@@ -1,0 +1,11 @@
+docs/
+_preview.html
+.DS_Store
+
+# Local tooling state.
+.claude/
+.superpowers/
+
+# Camera originals dropped in for processing — kept local, not served.
+# Delete the rule if one of these ever needs to ship.
+img/1A4A*.jpg
